@@ -46,7 +46,13 @@ export default function Page() {
   return (
     <main style={style.container}>
       <h1 style={style.heading}>Shopping List</h1>
-      <StudentInfo />
+      <ul>
+        <li>Apples</li>
+        <li>Oranges</li>
+        <li>Bananas</li>
+        <li>Strawberries</li>
+        <li>Blueberries</li>
+      </ul>
       <button style={style.backButton} onClick={goBack}>Back</button> {/* Back button */}
     </main>
   );
