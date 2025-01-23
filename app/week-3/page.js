@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from 'next/navigation'; // Correct import for App Router
 import StudentInfo from "../week-2/student-info";
+import Item from './Item';
 
 const style = {
   container: {
@@ -46,13 +47,7 @@ export default function Page() {
   return (
     <main style={style.container}>
       <h1 style={style.heading}>Shopping List</h1>
-      <ul>
-        <li>Apples</li>
-        <li>Oranges</li>
-        <li>Bananas</li>
-        <li>Strawberries</li>
-        <li>Blueberries</li>
-      </ul>
+      <ItemList/>
       <button style={style.backButton} onClick={goBack}>Back</button> {/* Back button */}
     </main>
   );
