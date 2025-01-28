@@ -1,7 +1,8 @@
+"use client";
 import { useRouter } from 'next/navigation'; // Correct import for App Router
 import StudentInfo from "../week-2/student-info";
 import Item from './Item';
-"use client";
+
 
 const style = {
   container: {
