@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from 'next/navigation'; // Correct import for App Router
 import StudentInfo from "../week-2/student-info";
-import Item from './Item';
+import ItemList from './item-list';
 
 const style = {
   container: {
@@ -35,7 +35,6 @@ const style = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
   },
-  
 };
 
 export default function Page() {
