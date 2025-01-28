@@ -80,7 +80,7 @@ const ItemList = () => {
   ];
 
   return (
-    <ul className="bg-black text-white p-4 space-y-2">
+    <ul className="bg-black text-white p-4 space-y-2 border border-gray-700">
       {items.map((item, index) => (
         <Item 
           key={index} 

@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation'; // Correct import for App Router
 import StudentInfo from "../week-2/student-info";
 import Item from './Item';
 
-
 const style = {
   container: {
     display: 'flex',
@@ -36,12 +35,7 @@ const style = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
   },
-  itemListContainer: {
-    border: '2px solid black', // Black border around the shopping list
-    padding: '1rem',
-    marginTop: '2rem',
-    width: '80%', // Adjust width if needed
-  }
+  
 };
 
 export default function Page() {
@@ -54,10 +48,8 @@ export default function Page() {
   return (
     <main style={style.container}>
       <h1 style={style.heading}>Shopping List</h1>
-      <div style={style.itemListContainer}>
-        <ItemList /> 
-      </div>
-      <button style={style.backButton} onClick={goBack}>Back</button>
+      <ItemList/>
+      <button style={style.backButton} onClick={goBack}>Back</button> {/* Back button */}
     </main>
   );
 }
