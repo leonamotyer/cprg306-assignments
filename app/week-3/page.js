@@ -24,6 +24,7 @@ const style = {
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Adds depth
     WebkitTextStroke: '2px black', // Black outline
     textStroke: '2px black', // Black outline for supported browsers
+    position: 'relative',
   },
   backButton: {
     marginTop: '1rem',
