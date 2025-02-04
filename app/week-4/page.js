@@ -15,6 +15,7 @@ export default function Page() {
   return (
     <main style={style.container}>
       <h1 style={style.heading}>Shopping List</h1>
+      <ItemList/>
       <newItem/>
       <button style={style.backButton} onClick={goBack}>Back</button>
     </main>
