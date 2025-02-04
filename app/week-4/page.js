@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import StudentInfo from "../week-2/student-info";
-import ItemList from '..item-list';
+import ItemList from '../week-3/item-list';
 
 // ... (keep your existing style object)
 
