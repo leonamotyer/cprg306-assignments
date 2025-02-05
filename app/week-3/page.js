@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from 'next/navigation'; // Correct import for App Router
+import { useRouter } from 'next/navigation'; 
 import StudentInfo from "../week-2/student-info";
 import ItemList from './item-list';
 

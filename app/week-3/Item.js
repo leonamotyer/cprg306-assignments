@@ -70,7 +70,7 @@ export default function Item({ name, category, initialQuantity }) {
 }
 const Item = ({ name, quantity, category }) => {
     return (
-        <li className="flex justify-between items-center border-b border-gray-700 p-4 bg-black text-white">
+        <li style={style.itemStyle}>
             <div className="text-lg font-bold text-yellow-400">{name}</div>
             <div className="flex space-x-4">
                 <span className="text-gray-400">Qty: {quantity}</span>
