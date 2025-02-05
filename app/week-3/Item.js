@@ -33,27 +33,7 @@ const itemStyle = {
   },
 };
 
-function QuantityControls({ initialQuantity }) {
-  const [quantity, setQuantity] = useState(initialQuantity);
 
-  const handleQuantity = (action) => {
-    if (action === '+') {
-      if (quantity >= 20) {
-        alert('Maximum quantity is 20');
-      } else {
-        setQuantity(q => q + 1);
-      }
-    } else if (action === '-') {
-      if (quantity <= 0) {
-        alert('Minimum quantity is 0');
-      } else {
-        setQuantity(q => q - 1);
-      }
-    } else {
-      setQuantity(0);
-    }
-  };
-}
 
 export default function Item({ name, category, initialQuantity }) {
   return (
@@ -64,19 +44,9 @@ export default function Item({ name, category, initialQuantity }) {
           <span>Category: {category}</span>
         </div>
       </div>
-      <QuantityControls initialQuantity={initialQuantity} />
+
     </li>
   );
+
 }
-const Item = ({ name, quantity, category }) => {
-    return (
-        <li style={style.itemStyle}>
-            <div >{name}</div>
-            <div >
-                <span >Qty: {quantity}</span>
-                <span >Category: {category}</span>
-            </div>
-        </li>
-    );
-};
 
