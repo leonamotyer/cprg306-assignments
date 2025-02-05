@@ -71,10 +71,10 @@ export default function Item({ name, category, initialQuantity }) {
 const Item = ({ name, quantity, category }) => {
     return (
         <li style={style.itemStyle}>
-            <div className="text-lg font-bold text-yellow-400">{name}</div>
-            <div className="flex space-x-4">
-                <span className="text-gray-400">Qty: {quantity}</span>
-                <span className="text-gray-500 italic">Category: {category}</span>
+            <div >{name}</div>
+            <div >
+                <span >Qty: {quantity}</span>
+                <span >Category: {category}</span>
             </div>
         </li>
     );
