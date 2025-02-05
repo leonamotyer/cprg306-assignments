@@ -1,36 +1,39 @@
+// app/week-3/page.js
 "use client";
-import { useRouter } from 'next/navigation'; // Correct import for App Router
-import StudentInfo from "../week-2/student-info";
+import { useRouter } from 'next/navigation';
 import ItemList from './item-list';
 
-const style = {
+const pageStyle = {
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
+    minHeight: '100vh',
     backgroundImage: 'url(https://cdn.wallpapersafari.com/63/84/mJg9fA.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    color: '#FFD700', // Yellow text
+    padding: '2rem',
+    color: '#FFD700',
     fontFamily: 'Arial, sans-serif',
   },
   heading: {
     fontSize: '3rem',
-    marginBottom: '2rem',
-    marginTop: '2rem',
-    color: '#FFD700', // Yellow text
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Adds depth
-    WebkitTextStroke: '2px black', // Black outline
-    textStroke: '2px black', // Black outline for supported browsers
-    position: 'relative',
+    margin: '2rem 0',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+    WebkitTextStroke: '2px black',
+  },
+  contentWrapper: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: '10px',
+    padding: '2rem',
+    width: '80%',
+    maxWidth: '800px',
   },
   backButton: {
-    marginTop: '1rem',
-    padding: '0.5rem 1rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Semi-transparent black background
-    color: '#FFD700', // Yellow text
+    marginTop: '2rem',
+    padding: '0.8rem 1.5rem',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    color: '#FFD700',
     fontSize: '1.2rem',
     border: '2px solid #FFD700',
     borderRadius: '5px',
@@ -39,18 +42,29 @@ const style = {
   },
 };
 
-export default function Page() {
-  const router = useRouter(); // Get the Next.js router from next/navigation
-
-  const goBack = () => {
-    router.back(); // Navigate back to the previous page
-  };
+export default function Week3Page() {
+  const router = useRouter();
 
   return (
-    <main style={style.container}>
-      <h1 style={style.heading}>Shopping List</h1>
-      <ItemList/>
-      <button style={style.backButton} onClick={goBack}>Back</button> {/* Back button */}
+    <main style={pageStyle.container}>
+      <h1 style={pageStyle.heading}>Week 3 - Static Shopping List</h1>
+      <div style={pageStyle.contentWrapper}>
+        <ItemList />
+        <button 
+          style={pageStyle.backButton} 
+          onClick={() => router.back()}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#FFD700';
+            e.target.style.color = 'black';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            e.target.style.color = '#FFD700';
+          }}
+        >
+          Back
+        </button>
+      </div>
     </main>
   );
 }
