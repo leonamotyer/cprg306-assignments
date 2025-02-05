@@ -1,5 +1,5 @@
 "use client";
-import Item from 'Item.js';
+import Item from './Item.js';
 
 const item1 = { name: "milk, 4 L 🥛", quantity: 1, category: "dairy" };
 const item2 = { name: "bread 🍞", quantity: 2, category: "bakery" };
