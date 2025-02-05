@@ -1,65 +1,24 @@
 "use client";
 import { useRouter } from 'next/navigation';
-import ItemList from '../week-3/item-list';
-
-const pageStyle = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    minHeight: '100vh',
-    backgroundImage: 'url(https://cdn.wallpapersafari.com/63/84/mJg9fA.jpg)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    padding: '2rem',
-    color: '#FFD700',
-    fontFamily: 'Arial, sans-serif',
-  },
-  heading: {
-    fontSize: '3rem',
-    margin: '2rem 0',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-    WebkitTextStroke: '2px black',
-  },
-  contentWrapper: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    borderRadius: '10px',
-    padding: '2rem',
-    width: '80%',
-    maxWidth: '800px',
-  },
-  backButton: {
-    marginTop: '2rem',
-    padding: '0.8rem 1.5rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    color: '#FFD700',
-    fontSize: '1.2rem',
-    border: '2px solid #FFD700',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-  },
-};
+import NewItem from './new-item';
 
 export default function Page() {
   const router = useRouter();
 
   return (
-    <main style={pageStyle.container}>
-      <h1 style={pageStyle.heading}>Shopping List</h1>
-      <div style={pageStyle.contentWrapper}>
-        <ItemList />
-        <button 
-          style={pageStyle.backButton} 
+    <main className="min-h-screen bg-cover bg-center flex flex-col items-center p-8" 
+          style={{ backgroundImage: 'url(https://cdn.wallpapersafari.com/63/84/mJg9fA.jpg)' }}>
+      <h1 className="text-4xl text-yellow-500 mb-8 text-center font-bold drop-shadow-lg"
+          style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', WebkitTextStroke: '1px black' }}>
+        Week 4 - Add New Item
+      </h1>
+      
+      <div className="bg-black/70 p-8 rounded-lg w-full max-w-md">
+        <NewItem />
+        
+        <button
           onClick={() => router.back()}
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#FFD700';
-            e.target.style.color = 'black';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            e.target.style.color = '#FFD700';
-          }}
+          className="w-full mt-6 py-2 px-4 bg-yellow-500/80 hover:bg-yellow-500 text-black font-bold rounded-lg transition-all"
         >
           Back
         </button>
