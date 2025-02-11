@@ -14,7 +14,7 @@ export default function Page() {
         className="text-4xl text-yellow-500 mb-8 text-center font-bold drop-shadow-lg"
         style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', WebkitTextStroke: '1px black' }}
       >
-        Week 5 - Add New Item
+        Week 5 - Add New Item 
       </h1>
 
       <div className="w-full max-w-md">
