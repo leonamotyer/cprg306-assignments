@@ -1,4 +1,4 @@
-I have updated week 5 with better styling as per week 2 feedback but didnt update week 4 and 3 
+I have updated week 5 with tailwind styling as per week 2 feedback but didnt update week 4 and 3 
 
 
 
