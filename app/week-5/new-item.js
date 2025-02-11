@@ -1,10 +1,25 @@
 "use client";
 import { useState } from 'react';
 
+// Global category array
+const categories = [
+  "Produce",
+  "Dairy",
+  "Bakery",
+  "Meat",
+  "Frozen Foods",
+  "Canned Goods",
+  "Dry Goods",
+  "Beverages",
+  "Snacks",
+  "Household",
+  "Other",
+];
+
 export default function NewItem() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState("produce");
+  const [category, setCategory] = useState(categories[0].toLowerCase()); // Default to first category
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +31,7 @@ export default function NewItem() {
     // Reset form fields
     setName("");
     setQuantity(1);
-    setCategory("produce");
+    setCategory(categories[0].toLowerCase());
   };
 
   return (
@@ -64,17 +79,11 @@ export default function NewItem() {
           onChange={(e) => setCategory(e.target.value)}
           className="w-full p-2 bg-gray-800 text-yellow-500 border border-yellow-500/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
         >
-          <option value="produce">Produce</option>
-          <option value="dairy">Dairy</option>
-          <option value="bakery">Bakery</option>
-          <option value="meat">Meat</option>
-          <option value="frozen foods">Frozen Foods</option>
-          <option value="canned goods">Canned Goods</option>
-          <option value="dry goods">Dry Goods</option>
-          <option value="beverages">Beverages</option>
-          <option value="snacks">Snacks</option>
-          <option value="household">Household</option>
-          <option value="other">Other</option>
+          {categories.map((cat, index) => (
+            <option key={index} value={cat.toLowerCase()}>
+              {cat}
+            </option>
+          ))}
         </select>
       </div>
 
