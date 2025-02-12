@@ -1,52 +1,32 @@
 "use client";
-import { useRouter } from 'next/navigation'; // Correct import for App Router
-
-const style = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundImage: 'url(https://cdn.wallpapersafari.com/63/84/mJg9fA.jpg)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    color: '#FFD700', // Yellow text
-    fontFamily: 'Arial, sans-serif',
-  },
-  heading: {
-    fontSize: '3rem',
-    marginBottom: '2rem',
-    color: '#FFD700', // Yellow text
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Adds depth
-    WebkitTextStroke: '2px black', // Black outline
-    textStroke: '2px black', // Black outline for supported browsers
-  },
-  backButton: {
-    marginTop: '1rem',
-    padding: '0.5rem 1rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Semi-transparent black background
-    color: '#FFD700', // Yellow text
-    fontSize: '1.2rem',
-    border: '2px solid #FFD700',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-  },
-};
+import { useRouter } from 'next/navigation';
+import NewItem from './new-item';
 
 export default function Page() {
-  const router = useRouter(); // Get the Next.js router from next/navigation
-
-  const goBack = () => {
-    router.back(); // Navigate back to the previous page
-  };
+  const router = useRouter();
 
   return (
-    <main style={style.container}>
-      <h1 style={style.heading}>Github Link</h1>
-     
-      <button style={style.backButton} onClick={goBack}>Back</button> {/* Back button */}
+    <main
+      className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center p-8"
+      style={{ backgroundImage: 'url(https://cdn.wallpapersafari.com/63/84/mJg9fA.jpg)' }}
+    >
+      <h1
+        className="text-4xl text-yellow-500 mb-8 text-center font-bold drop-shadow-lg"
+        style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', WebkitTextStroke: '1px black' }}
+      >
+        Week 5 - Add New Item
+      </h1>
+
+      <div className="w-full max-w-md">
+        <NewItem />
+
+        <button
+          onClick={() => router.back()}
+          className="w-full mt-6 py-2 px-4 bg-yellow-500/80 hover:bg-yellow-500 text-black font-bold rounded-lg transition-all"
+        >
+          Back
+        </button>
+      </div>
     </main>
   );
 }
