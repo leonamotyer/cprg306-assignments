@@ -46,9 +46,7 @@ export default function Home() {
     <div style={styles.container}>
       <h1 style={styles.heading}>CPRG 306: Web Dev - Assignments</h1>
       <ul style={styles.linkList}>
-        <li style={styles.linkItem}>
-          <a href="/week-2" style={styles.link}>Week 2</a>
-        </li>
+      
         <li style={styles.linkItem}>
           <a href="/week-3" style={styles.link}>Week 3</a>
         </li>
