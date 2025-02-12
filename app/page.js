@@ -56,10 +56,10 @@ export default function Home() {
           <a href="/week-4" style={styles.link}>Week 4</a>
         </li>
         <li style={styles.linkItem}>
-          <a href="/week5 " style={styles.link}>Week 5</a>
+          <a href="/week5 " style={styles.link}>Week5</a>
         </li>
         <li style={styles.linkItem}>
-          <a href="/week-5" style={styles.link}>Week</a>
+          <a href="/week-5" style={styles.link}>Week-5</a>
         </li>
         <li style={styles.linkItem}>
           <a href="/week-7" style={styles.link}>Week 7</a>
