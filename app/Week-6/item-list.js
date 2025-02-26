@@ -1,37 +1,70 @@
-"use client";
+'use client';
+
+import { useState } from 'react';
 import Item from './Item';
+import items from './items.json';
 
-const item1 = { name: "milk, 4 L 🥛", quantity: 1, category: "dairy" };
-const item2 = { name: "bread 🍞", quantity: 2, category: "bakery" };
-const item3 = { name: "eggs, dozen 🥚", quantity: 2, category: "dairy" };
-const item4 = { name: "bananas 🍌", quantity: 6, category: "produce" };
-const item5 = { name: "broccoli 🥦", quantity: 3, category: "produce" };
-const item6 = { name: "chicken breasts, 1 kg 🍗", quantity: 1, category: "meat" };
-const item7 = { name: "pasta sauce 🍝", quantity: 3, category: "canned goods" };
-const item8 = { name: "spaghetti, 454 g 🍝", quantity: 2, category: "dry goods" };
-const item9 = { name: "toilet paper, 12 pack 🧻", quantity: 1, category: "household" };
-const item10 = { name: "paper towels, 6 pack", quantity: 1, category: "household" };
-const item11 = { name: "dish soap 🍽️", quantity: 1, category: "household" };
-const item12 = { name: "hand soap 🧼", quantity: 4, category: "household" };
+export default function ItemList() {
+  const [sortBy, setSortBy] = useState('name');
 
-const ItemList = () => {
-  const items = [
-    item1, item2, item3, item4, item5, item6 , 
-    item7, item8, item9, item10, item11, item12
-  ];
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === 'name') return a.name.localeCompare(b.name);
+    if (sortBy === 'category') return a.category.localeCompare(b.category);
+    return 0;
+  });
+
+  const groupedItems = items.reduce((acc, item) => {
+    const category = item.category;
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(item);
+    return acc;
+  }, {});
 
   return (
-    <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
-      {items.map((item, index) => (
-        <Item 
-          key={index} 
-          name={item.name} 
-          initialQuantity={item.quantity}
-          category={item.category} 
-        />
-      ))}
-    </ul>
-  );
-};
+    <div>
+      <div className="mb-4 flex gap-2">
+        <button
+          onClick={() => setSortBy('name')}
+          className={`px-4 py-2 ${sortBy === 'name' ? 'bg-blue-600' : 'bg-blue-400'} rounded`}
+        >
+          Sort by Name
+        </button>
+        <button
+          onClick={() => setSortBy('category')}
+          className={`px-4 py-2 ${sortBy === 'category' ? 'bg-blue-600' : 'bg-blue-400'} rounded`}
+        >
+          Sort by Category
+        </button>
+        <button
+          onClick={() => setSortBy('group')}
+          className={`px-4 py-2 ${sortBy === 'group' ? 'bg-blue-600' : 'bg-blue-400'} rounded`}
+        >
+          Group by Category
+        </button>
+      </div>
 
-export default ItemList;
+      {sortBy === 'group' ? (
+        Object.keys(groupedItems)
+          .sort()
+          .map(category => (
+            <div key={category}>
+              <h2 className="text-xl font-bold capitalize mt-4">{category}</h2>
+              <ul>
+                {groupedItems[category]
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map(item => (
+                    <Item key={item.id} {...item} />
+                  ))}
+              </ul>
+            </div>
+          ))
+      ) : (
+        <ul>
+          {sortedItems.map(item => (
+            <Item key={item.id} {...item} />
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
