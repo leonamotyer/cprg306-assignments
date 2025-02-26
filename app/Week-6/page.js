@@ -88,7 +88,7 @@ export default function Page() {
       </div>
       <button style={style.backButton} onClick={goBack}>
         ⬅ BACK
-      </button>
+      </button >
     </main>
   );
 }

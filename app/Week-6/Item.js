@@ -15,7 +15,7 @@ const itemStyle = {
   textGroup: {
     flex: 1,
     marginRight: '1rem',
-  },
+  } ,
   name: {
     fontSize: '1.2rem',
     marginBottom: '0.3rem',

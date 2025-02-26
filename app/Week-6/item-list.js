@@ -16,7 +16,7 @@ const item12 = { name: "hand soap 🧼", quantity: 4, category: "household" };
 
 const ItemList = () => {
   const items = [
-    item1, item2, item3, item4, item5, item6, 
+    item1, item2, item3, item4, item5, item6 , 
     item7, item8, item9, item10, item11, item12
   ];
 
