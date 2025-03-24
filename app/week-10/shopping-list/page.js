@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getItems, addItem } from "../_services/shopping-list-service";
 import { useUserAuth } from "../_utils/auth-context";
+import Link from "next/link"; // Import Link for navigation
 
 export default function ShoppingList() {
   const { user } = useUserAuth();
@@ -56,6 +57,12 @@ export default function ShoppingList() {
             Add Item
           </button>
         </div>
+      </div>
+      {/* Back to Home Button */}
+      <div style={style.backButtonContainer}>
+        <Link href="/" style={style.backButton}>
+          &larr; Back 
+             </Link>
       </div>
     </div>
   );
@@ -123,5 +130,19 @@ const style = {
     cursor: "pointer",
     fontWeight: "bold",
     transition: "background-color 0.2s",
+  },
+  backButtonContainer: {
+    marginTop: "2rem",
+  },
+  backButton: {
+    color: "#FFD700",
+    fontSize: "1.2rem",
+    textDecoration: "none",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    padding: "0.5rem 1rem",
+    border: "2px solid #FFD700",
+    borderRadius: "5px",
+    transition: "all 0.3s ease",
+    fontWeight: "bold",
   },
 };
